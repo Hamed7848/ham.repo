@@ -1,6 +1,6 @@
 DROP PROCEDURE IF EXISTS silver.load_silver;
 
-DELIMITER $$
+DELIMITER $
 
 CREATE PROCEDURE silver.load_silver()
 BEGIN
