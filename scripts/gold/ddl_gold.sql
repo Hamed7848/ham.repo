@@ -24,7 +24,7 @@ SELECT
     city
 FROM s_silver.customer_master;
 
-ALTER TABLE g_gold.dim_customer ADD PRIMARY KEY (customer_id);
+
 
 -- ---------------------------------------------------------------------
 -- A2. dim_product
@@ -43,7 +43,7 @@ SELECT
     is_active
 FROM s_silver.product_master;
 
-ALTER table g_gold.dim_product ADD PRIMARY KEY (product_id);
+
 
 -- ---------------------------------------------------------------------
 -- A3. dim_supplier
@@ -61,7 +61,7 @@ SELECT
     preferred_supplier_flag
 FROM s_silver.supplier_master;
 
-ALTER TABLE g_gold.dim_supplier ADD PRIMARY KEY (supplier_id);
+
 
 -- =====================================================================
 -- SECTION B — FACT TABLES (transactions / events, one row per business event)
@@ -101,7 +101,7 @@ FROM s_silver.sales_orders o
 LEFT JOIN s_silver.customer_master c ON c.customer_id = o.customer_id
 LEFT JOIN s_silver.product_master p  ON p.product_id  = o.product_id;
 
-ALTER TABLE g_gold.fact_sales ADD PRIMARY KEY (order_id);
+
 
 -- ---------------------------------------------------------------------
 -- B2. fact_procurement — one row per purchase order line
@@ -128,7 +128,7 @@ SELECT
 FROM s_silver.procurement_orders po
 LEFT JOIN s_silver.supplier_master s ON s.supplier_id = po.supplier_id;
 
-ALTER table g_gold.fact_procurement ADD PRIMARY KEY (po_id);
+
 
 -- =====================================================================
 -- SECTION C — REPORTING / KPI TABLES (pre-aggregated summaries)
